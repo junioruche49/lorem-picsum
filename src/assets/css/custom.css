@@ -1,0 +1,32 @@
+.cart-num{
+    background: red;
+    color: #fff;
+    padding: 8px;
+    border-radius: 37px;
+    font-size: 10px;
+    position: absolute;
+    bottom: -9px;
+    right: 60px;
+}
+.pointer{
+    cursor: pointer;
+}
+.over-flow{
+    overflow: hidden;
+    margin: 0 auto;
+    width: 350px;
+    height: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.photo-zoom{
+    
+    transition: 0.5s all ease-in-out;
+}
+.photo-zoom:hover {
+    transform: scale(1.5);
+}
+
+.p-none{
+    padding: 0px;
+}
