@@ -3,7 +3,7 @@ import Loading from "../../components/loading/loading.component";
 import Pagination from "../../components/pagination/pagination.component";
 import PhotoList from "../../components/photo-list/photo-list.component";
 import Wrapper from "../../layouts/wrapper.components";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
@@ -21,7 +21,13 @@ const Home = () => {
 
       const data = await response.json();
       setPhotos(data);
-    } catch (error) {}
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    } catch (error) {
+      toast(error.message);
+    }
   }, [pagination]);
 
   const changePage = (type) => {

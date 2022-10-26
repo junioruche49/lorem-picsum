@@ -24,7 +24,9 @@ const PhotoDetails = () => {
       const data = await response.json();
 
       setPhoto(data);
-    } catch (error) {}
+    } catch (error) {
+      toast(error.message);
+    }
   }, [id]);
 
   const selectSize = (event) => {
