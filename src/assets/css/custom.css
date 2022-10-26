@@ -30,3 +30,10 @@
 .p-none{
     padding: 0px;
 }
+.position-sticky {
+    position: -webkit-sticky!important;
+    position: sticky!important;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+}

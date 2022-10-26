@@ -9,8 +9,8 @@ const Wrapper = ({ children }) => {
   const history = useHistory();
   return (
     <div className="home-container">
-      <div className="container mb-5 mt-2">
-        <div className="row mb-5">
+      <div className="container mb-5 mt-2 position-sticky">
+        <div className="row mb-5 pb-1">
           <div className="col-6 text-left">
             <img
               src={gallery}
@@ -26,13 +26,17 @@ const Wrapper = ({ children }) => {
               alt="shopping bag"
               className="justify-content-right pointer"
             />
-            <span data-testid="cart-num" className="cart-num btn btn-link">
+            <span
+              data-testid="cart-num"
+              onClick={() => history.push("/cart")}
+              className="cart-num btn btn-link"
+            >
               {cart.length}
             </span>
           </div>
         </div>
-        {children}
       </div>
+      <div className="container ">{children}</div>
     </div>
   );
 };

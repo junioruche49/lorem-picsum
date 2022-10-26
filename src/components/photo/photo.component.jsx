@@ -4,6 +4,7 @@ import Loading from "../loading/loading.component";
 import AddToCart from "../../assets/img/add-to-cart.png";
 import { CartContext } from "../../context/cart.context";
 import { resolutions } from "../../constant/resolutions";
+import { toast } from "react-toastify";
 
 const Photo = ({ photoDetails }) => {
   const [loading, setLoading] = useState(true);
@@ -19,6 +20,7 @@ const Photo = ({ photoDetails }) => {
       productId: photoDetails.id,
     };
     addCart(newPhoto);
+    toast("Added to cart successfully");
   };
 
   return (

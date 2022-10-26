@@ -1,19 +1,26 @@
 import { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { resolutions } from "../../constant/resolutions";
 import { CartContext } from "../../context/cart.context";
 import Wrapper from "../../layouts/wrapper.components";
 import deleteCart from "../../assets/img/delete.png";
 import emptyCart from "../../assets/img/shopping-cart-empty.png";
+import { ToastContainer, toast } from "react-toastify";
 
 const Cart = () => {
   const { cart, totalAmount, removeCart } = useContext(CartContext);
+  let history = useHistory();
 
   const removeCartHandler = (selectedCart, cartDetails) => {
     removeCart(selectedCart, cartDetails);
+    toast("Removed from cart successfully");
   };
 
   return (
     <Wrapper>
+      <div>
+        <ToastContainer />
+      </div>
       {!cart.length && (
         <div className="row mb-4">
           <div className="col-12 text-center">
@@ -29,7 +36,10 @@ const Cart = () => {
               <img
                 src={`https://picsum.photos/id/${photo.productId}/500/200`}
                 alt="cart"
-                className="img-fluid"
+                className="img-fluid pointer"
+                onClick={() => {
+                  history.push(`/photo/${photo.productId}`);
+                }}
               />
             </div>
             <div className="col-4  d-flex  align-items-end flex-column justify-content-end">

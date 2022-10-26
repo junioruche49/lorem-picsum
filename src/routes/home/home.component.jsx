@@ -3,6 +3,8 @@ import Loading from "../../components/loading/loading.component";
 import Pagination from "../../components/pagination/pagination.component";
 import PhotoList from "../../components/photo-list/photo-list.component";
 import Wrapper from "../../layouts/wrapper.components";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
   const [photos, setPhotos] = useState([]);
@@ -43,6 +45,9 @@ const Home = () => {
 
   return (
     <Wrapper>
+      <div>
+        <ToastContainer />
+      </div>
       {loading && <Loading />}
       <PhotoList photoList={photos} />
       <Pagination onChangePage={changePage} />

@@ -5,6 +5,7 @@ import { resolutions } from "../../constant/resolutions";
 import cartBtn from "../../assets/img/cart-add.png";
 import { CartContext } from "../../context/cart.context";
 import Loading from "../../components/loading/loading.component";
+import { ToastContainer, toast } from "react-toastify";
 
 const PhotoDetails = () => {
   const [photo, setPhoto] = useState({});
@@ -45,9 +46,13 @@ const PhotoDetails = () => {
       productId: id,
     };
     addCart(newPhoto);
+    toast("Added to cart successfully");
   };
   return (
     <Wrapper>
+      <div>
+        <ToastContainer />
+      </div>
       <div className="row">
         <div className="col-9">
           {loading && <Loading />}
